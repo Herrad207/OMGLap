@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="grid">
+                <nav class="header__navbar">
+                    <ul class="header__navbar-list">
+						<li class="header__navbar-item">
+                            <a href="home.html" class="header__navbar-item-link">Trang chủ</a>
+                        </li>
+						<li class="header__navbar-item header__navbar-item--separate header__navbar-item--has-qr">
+							Vào cửa hàng trên ứng dụng Laptop
+							<div class="hearder__qr">
+								<img src="../static/img/QRcode.png" alt="QR code" class="header__qr-img">
+								<div class="header__qr-apps">
+									<a href="" class="header__qr-link">
+										<img src="../static/img/googleplay.png" alt="Google Play" class="header__qr-link">
+									</a>
+									<a href="" class="header__qr-link">
+										<img src="../static/img/appstore.png" alt="App Store" class="header__qr-link">
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="header__navbar-item">
+							<span class="header__navbar-title--no-pointer">Hotline hỗ trợ khách hàng: 1900 1234</span>
+							<a href="" class="header__navbar--icon-link">
+								<i class="header__navbar-icon fa-solid fa-phone-volume fa-sm" style="color: #ffffff;"></i>
+							</a>
+						</li>
+					</ul>
+					<ul class="header__navbar-list">
+						<li class="header__navbar-item header__navbar-item--has-notify">
+							<a href="" class="header__navbar-item-link">
+								<i class="header__navbar-icon fa-solid fa-bell"></i>
+								Thông báo
+							</a>
+							<div class="header__notify">
+								<header class="header__notify-header">
+									<h3>Xem tất cả thông báo</h3>
+								</header>
+								<ul class="header__notify-list">
+									<li class="header__notify-item header__notify-item--viewed">
+										<a href="" class ="header__notify-link">
+											<img src="../static/img/9tc93j68.png" alt="" class="header__notify-img">
+											<div class="header__notify-info">
+												<span class="header__notify-name">Laptop cũ Dell Inspiron 16 5625</span>
+												<span class="header__notify-description">Mô tả laptop</span>
+											</div>
+										 </a>
+									</li>
+									<li class="header__notify-item">
+										<a href="" class ="header__notify-link">
+											<img src="../static/img/9tc93j68.png" alt="" class="header__notify-img">
+											<div class="header__notify-info">
+												<span class="header__notify-name">Laptop cũ Dell Inspiron 16 5625</span>
+												<span class="header__notify-descriotion">Mô tả laptop</span>
+											</div>
+										</a>
+									</li>
+									<li class="header__notify-item">
+										<a href="" class ="header__notify-link">
+											<img src="../static/img/9tc93j68.png" alt="" class="header__notify-img">
+											<div class="header__notify-info">
+												<span class="header__notify-name">Laptop cũ Dell Inspiron 16 5625</span>
+												<span class="header__notify-description">Mô tả laptop</span>
+											</div>
+										</a>
+									</li>
+								</ul>
+								<footer class="header__notify-footer">
+									<a href="" class="header__notify-footer-btn">Xem tất cả</a>
+								</footer>
+							</div>
+						</li>
+						<li class="header__navbar-item">
+							<a href="" class="header__navbar-item-link">
+								<i class="fa-regular fa-circle-question"></i>
+								Trợ giúp
+							</a>
+						</li>
+					</ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <h1>Giỏ hàng của bạn</h1>
+            <div id="cart-container">
+                <p>Đang tải giỏ hàng...</p>
+            </div>
+        </main>
+        <footer class="footer">
+            <!-- Giữ nguyên phần footer từ home.html -->
+        </footer>
+    </div>
+	<script src="../static/js/cart.js"></script>
+</body>
+</html>

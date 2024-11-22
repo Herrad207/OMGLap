@@ -1,0 +1,37 @@
+.header__search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Khoảng cách giữa các phần tử trong header và thanh tìm kiếm */
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* Đặt chiều rộng tối đa cho thanh tìm kiếm */
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    background-color: #187c9a;
+    color: #fff;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background-color: #045770;
+}

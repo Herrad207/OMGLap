@@ -1,0 +1,152 @@
+/* User Profile Container */
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 50px; /* Thêm khoảng cách từ trên */
+}
+
+/* Profile Title */
+.profile-title {
+    font-size: 3rem; /* Tăng kích thước font cho tiêu đề */
+    font-weight: 700; /* Làm đậm hơn để nổi bật */
+    margin-bottom: 30px;
+    color: var(--primary-color); /* Thêm màu cho tiêu đề */
+    text-align: center; /* Căn giữa */
+}
+
+/* Profile Info */
+.profile-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 50px; /* Tăng khoảng cách dưới */
+}
+
+/* Profile Image */
+.profile-img {
+    width: 180px; /* Tăng kích thước ảnh đại diện */
+    height: 180px;
+    margin-right: 40px;
+}
+
+/* Avatar Image */
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng cho ảnh đại diện */
+}
+
+/* Profile Details */
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+    font-size: 2rem; /* Tăng cỡ chữ chung cho toàn bộ thông tin */
+}
+
+/* Các thông tin trong profile */
+.profile-details p {
+    font-size: 2rem; /* Tăng cỡ chữ cho các đoạn thông tin */
+    margin-bottom: 15px; /* Thêm khoảng cách giữa các thông tin */
+}
+
+/* Tiêu đề thông tin (ví dụ: "Id:", "Email:", ...) */
+.profile-details strong {
+    font-weight: 600; /* Làm đậm tiêu đề */
+    font-size: 2.2rem; /* Tăng cỡ chữ cho tiêu đề */
+    color: var(--text-color); /* Đảm bảo màu chữ phù hợp */
+}
+
+/* Giá trị thông tin (ví dụ: giá trị id, email, mật khẩu) */
+.profile-details span {
+    font-weight: 400; /* Cân bằng trọng lượng chữ */
+    font-size: 2rem; /* Tăng cỡ chữ cho giá trị thông tin */
+    color: #555; /* Màu chữ cho giá trị */
+}
+
+/* Profile Item */
+.profile-item {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 25px; /* Tăng khoảng cách giữa các mục */
+    font-size: 2rem; /* Tăng kích thước font */
+}
+
+/* Profile Label */
+.profile-label {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-right: 15px; /* Tăng khoảng cách giữa nhãn và giá trị */
+    font-size: 1.8rem; /* Cỡ chữ lớn hơn cho nhãn */
+}
+
+/* Profile Value */
+.profile-value {
+    color: #555;
+    font-weight: 400;
+    font-size: 1.8rem; /* Cỡ chữ lớn hơn cho giá trị */
+}
+
+.profile-actions {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-start; /* Căn trái các nút */
+    gap: 30px; /* Khoảng cách giữa các nút */
+    flex-wrap: wrap; /* Cho phép các nút xuống dòng nếu cần */
+}
+
+.btn {
+    font-size: 2rem; /* Cỡ chữ cho nút */
+    padding: 15px 30px; /* Padding cho nút */
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+    text-align: center; /* Căn giữa chữ trong nút */
+    display: flex; /* Sử dụng flexbox để căn giữa nội dung */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    white-space: nowrap; /* Ngăn chữ xuống dòng */
+}
+
+.btn:hover {
+    background-color: #015c8d; /* Màu nền khi hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .user-profile {
+        flex-direction: column;
+    }
+
+    .profile-info {
+        flex-direction: column; /* Xếp thành cột trên màn hình nhỏ */
+        align-items: center;
+    }
+
+    .profile-details {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .profile-img {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .profile-item {
+        font-size: 1.8rem; /* Giảm kích thước font trên màn hình nhỏ */
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

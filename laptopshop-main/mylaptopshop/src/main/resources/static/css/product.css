@@ -1,0 +1,132 @@
+:root {
+    --primary-color: #7bbcd0;
+    --white-color: #fff;
+    --text-color: #333;
+    --border-color: #c9c5c5;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.4rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--card-shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 16px;
+    text-align: left;
+}
+
+.product-name {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 0 0 10px;
+}
+
+.product-name a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.product-name a:hover {
+    text-decoration: underline;
+}
+
+.product-brand,
+.product-price,
+.product-description,
+.product-quantity {
+    font-size: 1.4rem;
+    margin: 5px 0;
+    color: var(--text-color);
+}
+.add-to-cart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    margin: 10px auto;
+    width: 90%;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #45a049;
+}
+
+.add-to-cart-btn i {
+    margin-right: 8px;
+}
+
+/* Thêm kiểu dáng cho thông báo */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4caf50;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-size: 1.4rem;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+/* Hiệu ứng mờ dần khi thông báo biến mất */
+@keyframes fadeInOut {
+    0%, 80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
