@@ -25,16 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const addItemToCart = async (productId, quantity = 1) => {
         // Kiểm tra token trong localStorage
         const token = localStorage.getItem("authToken");
-        console.log("Token from localStorage:", token);  // Kiểm tra token
     
         if (!token) {
-            console.log("No token found. User is not authenticated.");  // Token không có
             showNotification("Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng!", false);
             return;
         }
     
         try {
-            console.log("Sending request to add item to cart with productId:", productId, "and quantity:", quantity);
             const params = new URLSearchParams();
             params.append('productId', productId);
             params.append('quantity', quantity);
@@ -48,18 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 body: params.toString(),
             });
     
-            console.log("Response status:", response.status);
             if (response.ok) {
                 const result = await response.json();
-                console.log("Response data:", result);
                 showNotification(result.message || "Đã thêm vào giỏ hàng!");
             } else {
                 const error = await response.json();
-                console.log("Error response:", error);
                 showNotification(error.message || "Không thể thêm vào giỏ hàng!", false);
             }
         } catch (error) {
-            console.error("Error adding item to cart:", error);
             showNotification("Có lỗi xảy ra, vui lòng thử lại!", false);
         }
     };

@@ -93,7 +93,7 @@
 }
 /* Header notification */
 .header__notify {
-    position: absolute;
+    position: absolute; /* Đảm bảo thông báo nằm độc lập */
     top: 118%;
     right: 0;
     width: 404px;
@@ -104,7 +104,7 @@
     cursor: default;
     transform-origin: calc(100% - 20px) top;
     animation: headerNotifyGrowth ease-in 0.25s;
-    z-index: 10;
+    z-index: 1000; /* Đặt giá trị cao để luôn trên cùng */
     display: none;
 }
 .header__navbar-item--has-notify:hover .header__notify {

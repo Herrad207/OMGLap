@@ -1,6 +1,7 @@
 package com.thesearch.mylaptopshop.service.cart;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -46,31 +47,68 @@ public class CartItemService implements ICartItemService{
         cartRepository.save(cart);
     }
 
+    // @Override
+    // public void removeItemFromCart(Long cartId,Long productId){
+    //     Cart cart = cartService.getCart(cartId);
+    //     CartItem itemToRemove = getCartItem(cartId, productId);
+    //     cart.removeItem(itemToRemove);
+    //     cartRepository.save(cart);
+    // }
     @Override
-    public void removeItemFromCart(Long cartId,Long productId){
+    public void removeItemFromCart(Long cartId, Long itemId) {
         Cart cart = cartService.getCart(cartId);
-        CartItem itemToRemove = getCartItem(cartId, productId);
+        CartItem itemToRemove = cart.getItems().stream()
+            .filter(item -> item.getId().equals(itemId))
+            .findFirst()
+            .orElseThrow(() -> new RuntimeException("Item not found!"));
         cart.removeItem(itemToRemove);
         cartRepository.save(cart);
     }
-
+    // @Override
+    // public void updateItemQuantity(Long cartId,Long productId,int quantity){
+    //     Cart cart = cartService.getCart(cartId);
+    //     cart.getItems()
+    //         .stream()
+    //         .filter(item -> item.getProduct().getId().equals(productId))
+    //         .findFirst().ifPresent(item -> {
+    //             item.setQuantity(quantity);
+    //             item.setUnitPrice(item.getProduct().getPrice());
+    //             item.setTotalPrice();
+    //         });
+    //     BigDecimal totalAmount = cart.getItems()
+    //         .stream().map(CartItem :: getTotalPrice)
+    //         .reduce(BigDecimal.ZERO, BigDecimal::add);
+    //     cart.setTotalAmount(totalAmount);
+    //     cartRepository.save(cart);
+    // }
     @Override
-    public void updateItemQuantity(Long cartId,Long productId,int quantity){
-        Cart cart = cartService.getCart(cartId);
-        cart.getItems()
-            .stream()
-            .filter(item -> item.getProduct().getId().equals(productId))
-            .findFirst().ifPresent(item -> {
-                item.setQuantity(quantity);
-                item.setUnitPrice(item.getProduct().getPrice());
-                item.setTotalPrice();
-            });
-        BigDecimal totalAmount = cart.getItems()
-            .stream().map(CartItem :: getTotalPrice)
-            .reduce(BigDecimal.ZERO, BigDecimal::add);
-        cart.setTotalAmount(totalAmount);
-        cartRepository.save(cart);
+public void updateItemQuantity(Long cartId, Long itemId, int quantity) {
+    Cart cart = cartService.getCart(cartId);
+
+    Optional<CartItem> optionalCartItem = cart.getItems()
+        .stream()
+        .filter(item -> item.getId().equals(itemId)) // So sánh itemId
+        .findFirst();
+
+    if (!optionalCartItem.isPresent()) {
+        System.out.println("CartItem not found in cart: " + itemId);
+        throw new ResourceNotFoundException("CartItem not found in cart");
     }
+
+    CartItem cartItem = optionalCartItem.get();
+    cartItem.setQuantity(quantity);
+    cartItem.setUnitPrice(cartItem.getProduct().getPrice());
+    cartItem.setTotalPrice();
+
+    BigDecimal totalAmount = cart.getItems()
+        .stream()
+        .map(CartItem::getTotalPrice)
+        .reduce(BigDecimal.ZERO, BigDecimal::add);
+    cart.setTotalAmount(totalAmount);
+
+    cartRepository.save(cart);
+}
+
 
     @Override
     public CartItem getCartItem(Long cartId, Long productId){

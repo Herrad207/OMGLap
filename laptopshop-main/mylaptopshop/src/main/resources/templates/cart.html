@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="../static/css/base.css">
     <link rel="stylesheet" href="../static/css/main.css">
+	<link rel="stylesheet" href="../static/css/cart.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
 </head>
@@ -90,20 +91,41 @@
 								Trợ giúp
 							</a>
 						</li>
+						<li class="header__navbar-item" id="login-register" style="display: none;">
+                            <a href="login.html" class="header__navbar-item-link" id="login-link">Đăng nhập</a> |
+                            <a href="registry.html" class="header__navbar-item-link" id="register-link">Đăng ký</a>
+                        </li>
+						<li class="header__navbar-item" id="user-info" style="display: none;">
+                            <span>Xin chào, <a id="username" href="user_profile.html">Tên người dùng</a></span>
+                            <a href="javascript:void(0)" id="logout-link" class="header__navbar-item-link">Đăng xuất</a>
+                        </li>
 					</ul>
                 </nav>
             </div>
         </header>
-        <main>
-            <h1>Giỏ hàng của bạn</h1>
-            <div id="cart-container">
-                <p>Đang tải giỏ hàng...</p>
+        <div id="cart-container" class="cart-container">
+            <h1>Chi tiết giỏ hàng</h1>
+            <p>Mã giỏ hàng: <span id="cart-id">Chưa xác định</span></p>
+            <p>Số lượng sản phẩm: <span id="total-items">0</span></p>
+            <p>Tổng giá trị: <span id="total-price">0 VND</span></p>
+
+            <div id="products" class="cart-products">
+                <!-- Sản phẩm sẽ được render tại đây -->
             </div>
-        </main>
+
+            <div id="error-message" style="display: none; color: red;">
+                <!-- Thông báo lỗi sẽ được hiển thị tại đây -->
+            </div>
+        </div>
+		<div class="checkout-container">
+			<button id="checkout-button" class="checkout-button">Xác nhận đơn hàng</button>
+		</div>
         <footer class="footer">
             <!-- Giữ nguyên phần footer từ home.html -->
         </footer>
     </div>
 	<script src="../static/js/cart.js"></script>
+	<script src="../static/js/home.js"></script>
+	<script src="../static/js/auth.js"></script>
 </body>
 </html>

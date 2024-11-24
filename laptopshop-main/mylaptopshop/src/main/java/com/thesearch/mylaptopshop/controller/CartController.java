@@ -42,6 +42,12 @@ public class CartController {
     public String getDefaultCartPage() {
         return "redirect:/carts/1/my-cart";
     }
+
+    @GetMapping("/{userId}/get-cart-id")
+    public Long getCartByUserId(@PathVariable Long userId){
+        Cart cart = cartService.getCartByUserId(userId);
+        return cart.getId();
+    }
     
     @PreAuthorize("hasRole('ROLE_USER')")
     @DeleteMapping("/{cartId}/clear")

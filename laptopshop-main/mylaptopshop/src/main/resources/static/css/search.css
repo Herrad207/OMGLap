@@ -1,17 +1,21 @@
 .header__search-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px; /* Khoảng cách giữa các phần tử trong header và thanh tìm kiếm */
+    align-items: center;
+    position: relative; /* Đảm bảo không bị đè */
+    z-index: 10; /* Ưu tiên hiển thị lên trên */
+    margin-top: 20px;
 }
 
 .search-form {
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 600px; /* Đặt chiều rộng tối đa cho thanh tìm kiếm */
-    background-color: #fff;
+    max-width: 600px;
+    background-color: var(--white-color);
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .search-input {
@@ -25,7 +29,7 @@
 .search-btn {
     padding: 10px 20px;
     background-color: #187c9a;
-    color: #fff;
+    color: var(--white-color);
     font-size: 1.6rem;
     border: none;
     border-radius: 0 5px 5px 0;

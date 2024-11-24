@@ -56,61 +56,36 @@
                 </nav>
             </div>
         </header>
-        <div class="container">
-            <div class="invoice">
-                <h1 class="invoice-title">Hóa đơn của bạn</h1>
-                <div class="invoice-details">
-                    <div class="invoice-header">
-                        <div class="invoice-info">
-                            <h2>Thông tin người nhận</h2>
-                            <p><strong>Tên người nhận:</strong> Nguyễn Văn A</p>
-                            <p><strong>Địa chỉ:</strong> 123 Đường ABC, Quận XYZ, Hà Nội</p>
-                            <p><strong>Số điện thoại:</strong> 0987 654 321</p>
-                        </div>
-                        <div class="invoice-info">
-                            <h2>Thông tin thanh toán</h2>
-                            <p><strong>Ngày đặt hàng:</strong> 20/11/2024</p>
-                            <p><strong>Phương thức thanh toán:</strong> Thẻ tín dụng</p>
-                            <p><strong>Trạng thái thanh toán:</strong> Đã thanh toán</p>
-                        </div>
-                    </div>
-                    <table class="invoice-table">
-                        <thead>
-                            <tr>
-                                <th>Tên sản phẩm</th>
-                                <th>Số lượng</th>
-                                <th>Đơn giá</th>
-                                <th>Thành tiền</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Laptop Dell Inspiron 16 5625</td>
-                                <td>1</td>
-                                <td>15,000,000 VND</td>
-                                <td>15,000,000 VND</td>
-                            </tr>
-                            <tr>
-                                <td>Laptop HP Pavilion 15</td>
-                                <td>2</td>
-                                <td>12,500,000 VND</td>
-                                <td>25,000,000 VND</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="invoice-summary">
-                        <p><strong>Tổng tiền:</strong> 40,000,000 VND</p>
-                        <p><strong>Phí vận chuyển:</strong> 50,000 VND</p>
-                        <p><strong>Tổng thanh toán:</strong> 40,050,000 VND</p>
-                    </div>
-                </div>
-            </div>
+        <div>
+            <h2>Danh sách đơn hàng</h2>
+            <ul id="order-list"></ul>
+        </div>
+        <div>
+            <h3>Chi tiết đơn hàng</h3>
+            <p>Mã đơn hàng: <span id="order-id">N/A</span></p>
+            <p>Ngày đặt: <span id="order-date">N/A</span></p>
+            <p>Trạng thái: <span id="order-status">N/A</span></p>
+            <h4>Danh sách sản phẩm</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã sản phẩm</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list"></tbody>
+            </table>
+            <h4>Tổng cộng: <span id="total-amount">0 VND</span></h4>
         </div>
         <footer class="footer">
             <div class="footer__content">
                 <p>&copy; 2024 Laptop Store. All rights reserved.</p>
-            </div>
+            </div>  
         </footer>
     </div>
+    <script src="../static/js/invoice.js"></script>
 </body>
 </html>
