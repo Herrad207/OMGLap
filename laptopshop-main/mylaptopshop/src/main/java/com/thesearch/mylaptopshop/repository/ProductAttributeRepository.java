@@ -10,4 +10,6 @@ import com.thesearch.mylaptopshop.model.ProductAttributeId;
 
 public interface  ProductAttributeRepository extends JpaRepository<ProductAttribute, ProductAttributeId>{
     Set<ProductAttribute> findByProductId(Long productId);
+
+    boolean existsByProductIdAndAttributeId(long productId, long attributeId);
 }

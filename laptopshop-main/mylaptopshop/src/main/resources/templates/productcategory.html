@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Category</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link rel="stylesheet" href="../static/css/productcategory.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+            
+        <a href="mainpage.html"><img src="../static/img/loltransparent.png" class="logo" alt=""></a>
+        <a href="mainpage.html">LaptopOmg</a>
+        <div id="searchBar">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Search for products..." 
+                onkeypress="handleSearch(event)"
+            />
+            <button id="searchButton" onclick="redirectToSearch()">Search</button>
+        </div>
+        <div>
+            <ul id="navbar">
+                <li><a href="track.html">Order Tracking</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+                <li><a href="contact.html"><i class="fas fa-phone"></i> Hotline: Sale / Contact</a></li>
+                <li><a href="index.html">Product</a></li>
+
+            </ul>
+        </header>
+
+    <!-- Category Title -->
+    <section id="categoryTitle">
+        <h1 id="categoryName">Category: </h1> <!-- Tên danh mục sẽ được điền động -->
+    </section>
+    <div class="brand-container">
+        <h3>Brands</h3>
+        <div id="brandBox" class="brand-box"></div>
+    </div>
+
+    <!-- Price Filter -->
+    <div id="filters">
+        <label for="minPrice">Min Price:</label>
+        <input type="number" id="minPrice" placeholder="Min Price">
+    
+        <label for="maxPrice">Max Price:</label>
+        <input type="number" id="maxPrice" placeholder="Max Price">
+    
+        <!-- Nút Apply Filters -->
+        <button id="applyFiltersBtn" onclick="applyFilters()">Apply Filters</button>
+    </div>
+
+    <!-- Product List -->
+    <section id="product" class="section-p1">
+        <div class="product-box" id="productBox">
+            <!-- Danh sách sản phẩm sẽ được tải động tại đây -->
+        </div>
+    </section>
+
+    <!-- Pagination -->
+    <section id="pagination">
+        <button id="prevBtn" onclick="changePage('prev')">Prev</button>
+        <span id="pageNumber">1</span>
+        <button id="nextBtn" onclick="changePage('next')">Next</button>
+    </section>
+
+    <script src="../static/js/productcategory.js"></script>
+    <script src="../static/js/filter.js"></script>
+
+</body>
+</html>

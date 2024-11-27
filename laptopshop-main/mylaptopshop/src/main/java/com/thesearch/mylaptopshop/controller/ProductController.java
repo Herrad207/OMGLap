@@ -50,10 +50,14 @@ public class ProductController {
     }
 
     @GetMapping("{productId}")
-    @ResponseBody  // Đảm bảo trả về dữ liệu JSON thay vì HTML
-    public ProductDto getProductById(@PathVariable Long productId) {
-        Product product = productService.getProductById(productId);
-        return productService.convertToDto(product);
+    public ResponseEntity<ApiResponse> getProductById(@PathVariable Long productId){
+        try {
+            Product product = productService.getProductById(productId);
+            ProductDto productDto = productService.convertToDto(product);
+            return ResponseEntity.ok(new ApiResponse("success",productDto));
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(e.getMessage(), null));
+        }
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -141,7 +145,7 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/{category}/all/products")
+    @GetMapping("/product/{category}/all/products")
     public ResponseEntity<ApiResponse> findProductByCategory(@PathVariable String category){
         try {
             List<Product> products = productService.getProductByCategory(category);
@@ -188,4 +192,25 @@ public class ProductController {
             return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(e.getMessage(),null));
         }
     }
+    @GetMapping("/filter/brand")
+    public ResponseEntity<ApiResponse> getFilterProductsB(
+        @RequestParam(required = false) String brand,
+        @RequestParam(required = false) BigDecimal minPrice,
+        @RequestParam(required = false) BigDecimal maxPrice
+    ) {
+        try {
+            List<Product> products = productService.filterProductsB(brand, minPrice, maxPrice);
+            List<ProductDto> productDtos = productService.getConvertedProducts(products);
+            return ResponseEntity.ok(new ApiResponse("Success",productDtos));
+        }catch(ResourceNotFoundException e){
+            return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(e.getMessage(),null));
+        }
+    }
+    @GetMapping("/products")
+    public List<ProductDto> getProductsByPage(@RequestParam int page, @RequestParam int size) {
+        List<Product> products = productService.getProductsByPage(page, size);
+        List<ProductDto> convertedProducts = productService.getConvertedProducts(products);
+        return convertedProducts;
+    }
+    
 }

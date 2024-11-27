@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.thesearch.mylaptopshop.dto.ImageDto;
@@ -161,5 +163,14 @@ public class ProductService implements IProductService {
     public List<Product> filterProducts(String category, BigDecimal minPrice, BigDecimal maxPrice){
         return productRepository.findByFilter(category, minPrice, maxPrice);
     }
-    
+    @Override
+    public List<Product> filterProductsB(String brand, BigDecimal minPrice, BigDecimal maxPrice){
+        return productRepository.findByFilterB(brand, minPrice, maxPrice);
+    }
+    @Override
+    public List<Product> getProductsByPage(int page, int size) {
+        PageRequest pageable = PageRequest.of(page, size);
+        Page<Product> productPage = productRepository.findAll(pageable);
+        return productPage.getContent();
+    }
 }

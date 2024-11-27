@@ -83,6 +83,12 @@
                             </a>
                         </li>
                         <li class="header__navbar-item">
+                            <a href="order-status.html" class="header__navbar-item-link">
+                                <i class="header__navbar-icon fa-solid fa-box"></i>
+                                Tình trạng đơn hàng
+                            </a>
+                        </li>
+                        <li class="header__navbar-item">
                             <a href="" class="header__navbar-item-link">
                                 <i class="fa-regular fa-circle-question"></i> Trợ giúp
                             </a>
@@ -111,18 +117,28 @@
             <h1 class="title">Danh sách sản phẩm</h1>
             <div id="productGrid" class="product-grid"></div>
         </div>
-
+        <div class="filter-container">
+            <form id="filterForm" class="filter-form">
+                <label for="category">Danh mục:</label>
+                <input type="text" id="category" name="category" placeholder="Nhập danh mục">
+        
+                <label for="minPrice">Giá tối thiểu:</label>
+                <input type="number" id="minPrice" name="minPrice" step="0.01" placeholder="0">
+        
+                <label for="maxPrice">Giá tối đa:</label>
+                <input type="number" id="maxPrice" name="maxPrice" step="0.01" placeholder="0">
+        
+                <button type="submit" class="filter-btn">Lọc</button>
+            </form>
+        </div>
+        
+        <div id="filteredProducts" class="product-grid"></div>
         <!-- Footer -->
-        <footer class="footer">
-            <div class="footer__content">
-                <p>&copy; 2024 Laptop Store. All rights reserved.</p>
-            </div>
-        </footer>
     </div>
 
-    <script src="../static/js/search.js"></script>
     <script src="../static/js/product.js"></script>
-    <script src="../static/js/auth.js"></script>
     <script src="../static/js/home.js"></script>
+    <script src="../static/js/filter.js"></script>
+
 </body>
 </html>

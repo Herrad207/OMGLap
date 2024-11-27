@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+header .logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+#navbar{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+}
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    transition: 0.3s ease;
+}
+#navbar li a:hover{
+    color:rgb(173, 145, 46);
+}
+#searchBar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+    margin: 0 20px;
+}
+
+#searchBar input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#searchBar button {
+    padding: 10px 20px;
+    background-color:gray;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#searchResults {
+    margin: 20px;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+main {
+    padding: 20px;
+}
+
+#compareTable {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.remove-button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.remove-button:hover {
+    background-color: #c0392b;
+}
+#footer {
+    background-color: #EFF6FF;
+    display: flex;
+    flex-direction: row; /* Sắp xếp các phần tử theo chiều dọc */
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0; /* Thêm padding cho phần trên và dưới */
+    gap: 20px; /* Khoảng cách giữa các mục */
+}
+#footer footername{
+    font-size: 50px;
+}
+#footer a {
+    text-decoration: none;
+    color: #333; /* Màu chữ cho các liên kết */
+    font-size: 16px;
+    margin: 5px 0; /* Thêm khoảng cách giữa các liên kết */
+    display: block; /* Đảm bảo mỗi liên kết chiếm một dòng riêng */
+    text-align: center; /* Căn giữa các liên kết */
+    transition: color 0.3s ease;
+}
+
+#footer a:hover {
+    color: #007bff; /* Màu chữ khi hover */
+}
+
+#footer .logo {
+    height: 80px;
+    margin-right: -10px;
+}
+
+#footer li {
+    list-style: none;
+}
+
+#footer .bocongthuong {
+    margin-top: 20px;
+    width: 200px; /* Giới hạn chiều rộng của logo */
+}

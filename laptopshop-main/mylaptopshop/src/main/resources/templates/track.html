@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking</title>
+    <link rel="stylesheet" href="../static/css/track.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+</head>
+<body>
+    <header id="header">
+        <a href="mainpage.html"><img src="../static/img/loltransparent.png" class="logo" alt="Logo"></a>
+        <a href="mainpage.html">LaptopOmg</a>
+        <div id="searchBar">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Search for products..." 
+                onkeypress="handleSearch(event)"
+            />
+            <button id="searchButton" onclick="redirectToSearch()">Search</button>
+        </div>
+        <ul id="navbar">
+            <li><a href="track.html">Order Tracking</a></li>
+            <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+            <li><a href="contact.html"><i class="fas fa-phone"></i> Hotline</a></li>
+            <li><a href="product.html">Product</a></li>
+            <li id="user-info" style="display: none;">
+                <span id="username"></span> | <a href="#" id="logout-link">Logout</a>
+            </li>
+            <li id="login-section">
+                <a href="login.html" id="login-link"><i class="fas fa-user"></i> Login</a>
+            </li>
+        </ul>
+    </header>
+
+    <div class="tracking-container">
+        <div id="error-message" style="display: none; color: red;">
+            <!-- Error message will appear here -->
+        </div>
+        <div id="order-list-container">
+            <h3>Danh sách đơn hàng:</h3>
+            <ul id="order-list">
+                <!-- Danh sách đơn hàng sẽ được render ở đây -->
+            </ul>
+        </div>
+
+        <div id="order-detail">
+            <h2>Chi tiết đơn hàng</h2>
+            <div id="order-info">
+                <p><strong>ID Đơn hàng:</strong> <span id="order-id">N/A</span></p>
+                <p><strong>Ngày đặt:</strong> <span id="order-date">N/A</span></p>
+                <p><strong>Tình trạng:</strong> <span id="order-status">N/A</span></p>
+            </div>
+        
+            <h3>Sản phẩm trong đơn hàng:</h3>
+            <table id="product-table">
+                <thead>
+                    <tr>
+                        <th>ID Sản phẩm</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                        <th>Tổng tiền</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list"></tbody>
+            </table>
+        
+            <div id="order-summary">
+                <p><strong>Tổng số tiền:</strong> <span id="total-amount">0 VND</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/js/track.js"></script>
+    <script src="../static/js/home.js"></script>
+
+</body>
+</html>

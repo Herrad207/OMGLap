@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="../static/css/profile.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+</head>
+<body>
+
+    <header id="header">
+        <a href="mainpage.html"><img src="../static/img/loltransparent.png" class="logo" alt="Logo"></a>
+        <a href="mainpage.html">LaptopOmg</a>
+        <ul id="navbar">
+            <li><a href="track.html">Order Tracking</a></li>
+            <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+            <li><a href="contact.html"><i class="fas fa-phone"></i> Hotline: Sale / Contact</a></li>
+            <li id="user-info" style="display: none;">
+                <a href="profile.html" id="username"></a> | <a href="#" id="logout-link">Logout</a>
+            </li>
+            <li id="login-section">
+                <a href="login.html" id="login-link"><i class="fas fa-user"></i> Login</a>
+            </li>
+        </ul>
+    </header>
+
+    <div id="profile-container">
+        <h1>Hồ Sơ Người Dùng</h1>
+        <div id="user-info">
+            <p><strong>ID:</strong> <span id="userId"></span></p>
+            <p><strong>Họ:</strong> <span id="firstName"></span></p>
+            <p><strong>Tên:</strong> <span id="lastName"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+        </div>
+
+        <div class="profile-actions">
+            <button id="editProfileBtn">Chỉnh sửa thông tin</button>
+            <button id="change-password-button">Đổi mật khẩu</button>
+        </div>
+
+        <!-- Modal chỉnh sửa thông tin -->
+        <div id="editProfileModal" class="modal">
+            <div class="modal-content">
+                <span id="closeModal" class="close">&times;</span>
+                <h2>Chỉnh sửa thông tin</h2>
+                <form id="editProfileForm">
+                    <label for="editFirstName">Tên:</label>
+                    <input type="text" id="editFirstName" required><br><br>
+                    <label for="editLastName">Họ:</label>
+                    <input type="text" id="editLastName" required><br><br>
+                    <button type="submit">Lưu thay đổi</button>
+                </form>
+            </div>
+        </div>
+        <!-- Modal đổi mật khẩu -->
+        <div id="changePasswordModal" class="modal hidden">
+            <div class="modal-content">
+                <span id="closePasswordModal" class="close">&times;</span>
+                <h3>Đổi mật khẩu</h3>
+                <form id="changePasswordForm">
+                    <label for="newPassword">Mật khẩu mới:</label>
+                    <input type="password" id="newPassword" placeholder="Nhập mật khẩu mới">
+                    <label for="repeatPassword">Xác nhận mật khẩu:</label>
+                    <input type="password" id="repeatPassword" placeholder="Nhập lại mật khẩu mới">
+                    <p id="error-message" class="error-message hidden"></p>
+                    <button type="submit">Lưu mật khẩu</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <a href="mainpage.html"><img src="assets/image/loltransparent.png" class="logo" alt="Logo"></a>
+        <li><a href="track.html">Order Tracking</a></li>
+        <li><a href="cart.html"><i class="fas fa-map"></i>Cart</a></li>
+        <li><a href="login.html"><i class="fas fa-envelope"></i>Login</a></li>
+        <li><a href="contact.html"><i class="fas fa-phone"></i> Hotline: Sale / Contact</a></li>
+        <a href="bocongthuong.html"><img src="assets/image/logobocongthuong.png" class="bocongthuong" alt="Bộ Công Thương Logo"></a>
+    </footer>
+
+    <script src="../static/js/profile.js"></script>
+    <script src="../static/js/home.js"></script>
+
+</body>
+</html>

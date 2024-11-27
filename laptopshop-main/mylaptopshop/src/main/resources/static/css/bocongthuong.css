@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Chiều cao bằng với viewport */
+    background-color: #000; /* Tùy chọn, để đảm bảo màu nền nếu ảnh không tải được */
+}
+
+.full-image img {
+    width: 100%; /* Chiều rộng toàn bộ trang */
+    height: 100%; /* Chiều cao toàn bộ trang */
+    object-fit: cover; /* Giữ tỷ lệ nhưng bao phủ toàn bộ màn hình */
+}

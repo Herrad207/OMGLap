@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv=""X-UA-Compatible>
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <title>Main Page</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="../static/css/mainpage.css">
+    </head>
+    <body>
+
+        <header id="header">
+            
+            <div class="logo-container">
+                <a href="mainpage.html">
+                    <img src="../static/img/loltransparent.png" class="logo" alt="Logo">
+                </a>
+                <h1 class="brand-name">LaptopOmg</h1>
+            </div>
+            <div id="searchBar">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search for products..." 
+                    onkeypress="handleSearch(event)"
+                />
+                <button id="searchButton" onclick="redirectToSearch()">Search</button>
+            </div>
+            <div>
+                <ul id="navbar">
+                    <li><a href="track.html">Order Tracking</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                    <li><a href="contact.html"><i class="fas fa-phone"></i> Hotline: Sale / Contact</a></li>
+                    <li id="user-info" style="display: none;">
+                        <a href="profile.html" id="username"></a> | <a href="#" id="logout-link">Logout</a>
+                    </li>
+                    <li id="login-section">
+                        <a href="login.html" id="login-link"><i class="fas fa-user"></i> Login</a>
+                    </li>
+                </ul>
+            </header>
+        <section id="promotion" class="section-p1">
+            <div id="categories">
+                <h3>Danh Mục</h3>
+                <ul id="categoryBox">
+                    <!-- Danh mục sẽ được thêm vào đây bằng JavaScript -->
+                </ul>
+            </div>
+            <div id="slider-container">
+                <div id="slider">
+                    <img src="../static/img/thang_11_web_slider_800x400_laptop_gaming.png" alt="Khuyến mãi" class="slider-image">
+                    <img src="../static/img/thang_11_laptop_vivobook_s_gearvn__800x400_.png" alt="Khuyến mãi" class="slider-image" style="display: none;">
+                    <img src="../static/img/laptop_banner-msi-800-x-400-t12.png" alt="Khuyến mãi" class="slider-image" style="display: none;">
+                </div>
+                <div id="slider-controls">
+                    <button onclick="changeSlide('prev')">&lt;</button>
+                    <button onclick="changeSlide('next')">&gt;</button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="feature" class = "section-p1">
+            <div class="fe-box">
+                <img src="../static/img/free-shipping.png" alt="" class="fe-img">
+                <h6>Miễn phí vận chuyển</h6>
+                <h6>Cho đơn hàng từ 5km </h6>
+
+            </div>
+            <div class="fe-box">
+                <img src="../static/img/return-box.png" alt="" class="fe-img">
+                <h6>Đảm bảo đúng hẹn</h6>
+                <h6>Hoàn lại tiền trong 30 ngày </h6>
+
+            </div>
+            <div class="fe-box">
+                <img src="../static/img/customer-service.png" alt="" class="fe-img">
+                <h6>Hỗ trợ trực tuyến</h6>
+                <h6>Chúng tôi hỗ trợ 24/24 </h6>
+
+            </div>
+            <div class="fe-box">
+                <img src="../static/img/shopping-online.png" alt="" class="fe-img">
+                <h6>Khuyến mãi</h6>
+                <h6>Khuyễn mãi nâng cấp Ram </h6>
+
+            </div>
+        </section>
+        <section id="product" class="section-p1">
+            <h2>Sản Phẩm</h2>
+            <div class="product-box" id="productBox"></div>
+            
+            <div id="pagination">
+                <button id="prevBtn" onclick="changePage('prev')">Prev</button>
+                <span id="pageNumber">1</span>
+                <button id="nextBtn" onclick="changePage('next')">Next</button>
+            </div>
+        </section>
+        
+        <footer id="footer">
+            <a href="mainpage.html"><img src="../static/img/loltransparent.png" class="logo" alt=""></a>
+            <li><a href="track.html">Order Tracking</a></li>
+            <li><a href="cart.html"><i class="fas fa-map"></i>Cart</a></li>
+            <li><a href="login.html"><i class="fas fa-envelope"></i>Login</a></li>
+            <li><a href="contact.html"><i class="fas fa-phone"></i> Hotline: Sale / Contact</a></li>
+            <a href="bocongthuong.html"><img src="../static/img/logobocongthuong.png" class="bocongthuong" alt=""></a>
+        </footer>
+        <script src="../static/js/mainpage.js"></script>
+        <script src="../static/js/home.js"></script>
+
+    </body>
+</html>

@@ -28,4 +28,14 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
         @Param("minPrice") BigDecimal minPrice,
         @Param("maxPrice") BigDecimal maxPrice
     );
+
+    @Query("SELECT p FROM Product p Where "
+            +"(:brand IS NULL OR p.brand = :brand) AND "
+            +"(:minPrice IS NULL OR p.price >= :minPrice) AND "
+            +"(:maxPrice IS NULL OR p.price <= :maxPrice)")
+    List<Product> findByFilterB(
+        @Param("brand") String brand,
+        @Param("minPrice") BigDecimal minPrice,
+        @Param("maxPrice") BigDecimal maxPrice
+    );
 }

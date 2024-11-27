@@ -1,0 +1,37 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #5E5672;
+}
+h1{
+    align-items: center;
+    color: white;
+}
+
+table{
+    width: 100% ;
+    border-collapse: collapse;
+    background-color: aqua;
+}
+
+tr,td{
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 12px;
+}
+th{
+    background-color: black;
+    font-weight: bold;
+    color: aquamarine;
+}
+tr:hover{
+    background-color: yellow;
+}
+img {
+    max-width: 100px;
+    height: auto;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}

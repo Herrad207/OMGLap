@@ -1,170 +1,150 @@
-:root {
-    --primary-color: #7bbcd0;
-    --white-color: #fff;
-    --black-color: #000;
-    --text-color: #333;
-    --border-color: #c9c5c5;
-}
-
-/* General reset */
+/* Đặt lại các thiết lập mặc định */
 * {
-    box-sizing: inherit;
     margin: 0;
     padding: 0;
-}
-html {
-    font-size: 62.5%; /* 16px */
-    line-height: 1.6rem;
-    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-/* Grid system */
-.grid {
-    width: 1450px;
-    max-width: 100%;
-    margin: 0 auto;
-}
-.grid__full-width {
-    width: 100%;
-}
-.grid__row {
+/* Nền trang */
+body {
+    background-color: #f9f9f9;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
 }
 
-/* Modal animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+/* Header */
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 150px;
+    background: transparent;
+    z-index: 1;
+    margin-bottom: 20px;
+    border: none;
 }
-@keyframes growth {
-    from {
-        transform: scale(var(--growth-from));
-    }
-    to {
-        transform: scale(var(--growth-to));
-    }
+
+/* Logo container */
+.logo-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+/* Logo */
+.logo {
+    width: 60px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Brand name (chữ LaptopOmg) */
+.brand-name {
+    position: relative;
+    font-size: 40px;
+    color: rgb(222, 14, 59);
+    font-weight: bold;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form container */
+.auth-form__container {
+    text-align: center;
+}
+
+/* Form heading */
+.auth-form__heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Input fields */
+.auth-form__input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* Input field group */
+.auth-form__group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* Form controls */
+.auth-form__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Button styles */
-.btn {
-    min-width: 150px;
-    height: 36px;
-    text-decoration: none;
+.auth-form__controls-back,
+.btn--primary {
+    padding: 10px 15px;
+    border-radius: 4px;
     border: none;
-    border-radius: 5px;
-    font-size: 1.4rem;
-    padding: 0;
-    outline: none;
     cursor: pointer;
-    justify-content: center;
-    line-height: 1.7rem;
-    display: inline-flex;
-    align-items: center;
+    font-size: 16px;
+    color: white;
+}
+
+.auth-form__controls-back {
+    background-color: gray;
+    transition: background-color 0.3s ease;
+}
+
+.auth-form__controls-back:hover {
+    background-color: darkgray;
+}
+
+.btn--primary {
+    background-color: violet;
+    transition: background-color 0.3s ease;
+}
+
+.btn--primary:hover {
+    background-color: purple;
+}
+
+/* Aside links */
+.auth-form__aside {
     text-align: center;
-}
-.btn:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-.btn.btn-register {
-    color: var(--white-color);
-    background-color: var(--primary-color);
+    margin-top: 10px;
 }
 
-/* Input styles */
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-label {
-    display: block;
-    font-size: 1.4rem;
-    margin-bottom: 5px;
-    color: var(--text-color);
-}
-
-.form-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1.4rem;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    background-color: var(--white-color);
-    color: var(--text-color);
-    transition: border-color 0.3s;
-}
-
-.form-input:focus {
-    border-color: var(--primary-color);
-    outline: none;
-}
-
-/* Registration form */
-.registration-form {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: var(--white-color);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.form-title {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    color: var(--text-color);
-}
-
-/* Footer */
-.footer {
-    background-color: var(--black-color);
-    color: var(--white-color);
-    padding: 20px 0;
-    text-align: center;
-}
-
-.footer__content {
-    font-size: 1.4rem;
-}
-
-/* Form footer */
-.form-footer {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.form-footer p {
-    font-size: 1.4rem;
-    color: var(--text-color);
-}
-
-.form-footer .link {
-    color: var(--primary-color);
+.auth-form__help-link {
+    color: violet;
     text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
 }
 
-.form-footer .link:hover {
-    text-decoration: underline;
-}
-
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-    .grid {
-        padding: 0 10px;
-    }
-
-    .registration-form {
-        width: 90%;
-        padding: 20px 10px;
-    }
-
-    .form-title {
-        font-size: 1.8rem;
-    }
+.auth-form__help-link:hover {
+    color: purple;
 }

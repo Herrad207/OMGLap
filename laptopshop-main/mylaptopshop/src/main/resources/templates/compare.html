@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Products</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link rel="stylesheet" href="../static/css/compare.css">
+</head>
+<body>
+    <header>
+        <a href="mainpage.html"><img src="../static/img/loltransparent.png" class="logo" alt="Logo"></a>
+        <a href="mainpage.html">LaptopOmg</a>
+        <div id="searchBar">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Search for products..." 
+                onkeypress="handleSearch(event)"
+            />
+            <button id="searchButton" onclick="redirectToSearch()">Search</button>
+        </div>
+        <div>
+            <ul id="navbar">
+                <li><a href="track.html">Order Tracking</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+                <li><a href="contact.html"><i class="fas fa-phone"></i> Hotline: Sale / Contact</a></li>
+                <li><a href="compare.html">Product</a></li>
+
+            </ul>
+    </header>
+    
+    <main>
+        <h1>Compare Products</h1>
+        <div id="compareTable">
+            <!-- Bảng sản phẩm sẽ được hiển thị ở đây -->
+        </div>
+    </main>
+
+    <script src="../static/js/compare.js"></script>
+    <footer id="footer">
+        <a href="mainpage.html"><img src="../static/img/loltransparent.png" class="logo" alt=""></a>
+        <ul>
+            <li><a><i class="fas fa-map"></i> Quán The Last Drop, Quận Lanes, Thành phố Zaun, Tỉnh Runeterra</a></li>
+            <li><a><i class="fas fa-envelope"></i> laptopomg369@gmail.com</a></li>
+            <li><a><i class="fas fa-phone"></i> 0987654321 - 0123456789</a></li>
+            <li><a><i class="fas fa-clock"></i>Thứ 2 - Chủ nhật 9h - 22h</a></li>
+        </ul>
+            <a href="bocongthuong.html"><img src="../static/img/logobocongthuong.png" class="bocongthuong" alt=""></a>
+    </footer>
+</body>
+</html>

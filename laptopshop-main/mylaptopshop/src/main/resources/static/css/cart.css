@@ -1,135 +1,211 @@
-/* Container chính */
-.cart-container {
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    max-width: 800px;
+/* Tổng thể */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-/* Tiêu đề */
-.cart-container h1 {
-    text-align: center;
-    color: var(--primary-color);
-    margin-bottom: 20px;
+body {
+    width: 100%;
+    background-color: #f5f5f5; /* Màu nền không thay đổi */
+    color: #333; /* Màu chữ tối */
 }
 
-/* Sản phẩm trong giỏ */
-.cart-products {
+/* Header */
+#header {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    border-bottom: 2px solid #ddd;
 }
 
-/* Mỗi sản phẩm */
+.logo {
+    width: 60px; /* Kích thước logo */
+    height: auto;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000; /* Màu chữ của menu không thay đổi */
+    transition: color 0.3s ease;
+}
+
+#navbar li a:hover {
+    color: #000; /* Không thay đổi màu hover */
+}
+
+/* Thanh tìm kiếm */
+#searchBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
+}
+
+#searchBar input {
+    width: 250px; /* Kích thước thanh tìm kiếm */
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#searchBar button {
+    padding: 8px 16px;
+    background-color: #6c63ff; /* Màu nút tìm kiếm */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#searchBar button:hover {
+    background-color: #4a44d6; /* Màu hover cho nút tìm kiếm */
+}
+
+/* Giỏ hàng container */
+.cart-container {
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-container p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.cart-container span {
+    font-weight: bold;
+    color: #6c63ff; /* Giữ màu này cho các span */
+}
+
 .cart-item {
     display: flex;
     align-items: center;
-    border: 1px solid var(--border-color);
+    justify-content: space-between;
+    border: 1px solid #ddd; /* Đường viền xung quanh sản phẩm */
+    padding: 12px;
     border-radius: 8px;
-    padding: 10px;
     background-color: #fff;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 10px; /* Khoảng cách dưới mỗi sản phẩm */
 }
 
-/* Ảnh sản phẩm */
-.cart-item img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    margin-right: 15px;
-    border-radius: 5px;
+/* Thanh ngăn cách giữa các sản phẩm */
+.cart-item:not(:last-child) {
+    border-bottom: 2px solid #ccc; /* Đường ngăn cách giữa các sản phẩm */
+}
+.cart-item-image {
+    width: 120px; /* Tăng kích thước ảnh */
+    height: 120px; /* Tăng chiều cao ảnh */
+    max-width: 100%; /* Đảm bảo ảnh không vượt quá kích thước container */
+    max-height: 100%; /* Đảm bảo ảnh không vượt quá container */
+    object-fit: contain; /* Giữ tỷ lệ ảnh, không làm biến dạng */
+    border-radius: 4px; /* Bo góc ảnh */
 }
 
-/* Thông tin sản phẩm */
-.cart-item-details {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.cart-item-details h3 {
-    font-size: 1.6rem;
-    color: var(--text-color);
-}
-
-.cart-item-details p {
-    font-size: 1.4rem;
-    color: #555;
-}
-
-/* Dòng "Thành tiền" */
-.cart-item-total {
-    font-size: 1.4rem;
-    font-family: Arial, sans-serif; /* Giữ nguyên font chữ */
-    font-weight: normal; /* Không thay đổi độ đậm */
-    color: #333; /* Màu sắc cố định */
-    line-height: 1.5; /* Giữ khoảng cách dòng */
-}
-
-/* Điều chỉnh số lượng */
-.cart-item-quantity {
+.cart-product-actions {
     display: flex;
     align-items: center;
+    justify-content: flex-end; /* Căn phải */
     gap: 10px;
 }
 
-.cart-item-quantity button {
-    padding: 5px 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    background-color: #fff;
+.cart-product-actions button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #6c63ff; /* Giữ màu nút */
+    color: white;
+    border-radius: 4px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-.cart-item-quantity button:hover {
-    background-color: #f0f0f0;
+.cart-product-actions button:hover {
+    background-color: #4a44d6; /* Màu hover cho nút */
 }
 
-.cart-item-quantity span {
-    font-size: 18px;
-    font-weight: bold;
+/* Thông báo lỗi */
+#error-message {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+    display: none;
 }
 
-/* Tổng giá trị */
-#total-price {
-    font-size: 1.6rem;
-    color: var(--primary-color);
-    font-weight: bold;
-}
-
-/* Nút thanh toán */
+/* Nút xác nhận đơn hàng */
 .checkout-container {
     text-align: center;
     margin-top: 20px;
 }
 
 .checkout-button {
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    color: #fff;
-    background-color: #28a745;
+    padding: 12px 20px;
+    background-color: #6c63ff; /* Màu nút thanh toán */
+    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
+    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .checkout-button:hover {
-    background-color: #218838;
+    background-color: #4a44d6; /* Màu hover cho nút thanh toán */
 }
 
-/* Phương thức thanh toán */
-.hidden {
-    display: none;
-}
-.disabled-button {
-    background-color: #ccc;
-    cursor: not-allowed;
-    pointer-events: none;
+/* Phần thông tin người dùng */
+#user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+#username {
+    font-weight: bold;
+    color: #6c63ff; /* Màu tên người dùng */
+}
+
+#logout-link {
+    text-decoration: none;
+    color: red; /* Màu chữ cho liên kết đăng xuất */
+    font-weight: bold;
+    cursor: pointer;
+}
+.remove-item-icon {
+    font-size: 20px; /* Kích thước dấu X */
+    font-weight: bold;
+    color: red; /* Màu sắc dấu X */
+    cursor: pointer; /* Thêm con trỏ chuột dạng pointer */
+    transition: color 0.3s ease; /* Hiệu ứng màu khi hover */
+}
+
+.remove-item-icon:hover {
+    color: darkred; /* Màu khi hover */
+}

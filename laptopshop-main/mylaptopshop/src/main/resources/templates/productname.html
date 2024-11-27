@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="../static/css/productname.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+</head>
+<body>
+    <header id="header">
+            
+        <a href="mainpage.html"><img src="../static/img/loltransparent.png" class="logo" alt=""></a>
+        <a href="mainpage.html">LaptopOmg</a>
+        <div id="searchBar">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Search for products..." 
+                onkeypress="handleSearch(event)"
+            />
+            <button id="searchButton" onclick="redirectToSearch()">Search</button>
+        </div>
+        <div>
+            <ul id="navbar">
+                <li><a href="track.html">Order Tracking</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+                <li><a href="contact.html"><i class="fas fa-phone"></i> Hotline: Sale / Contact</a></li>
+                <li><a href="index.html">Product</a></li>
+
+            </ul>
+        </header>
+    <main>
+        <h1>Search Results</h1>
+        <div id="searchResults" class="search-results">
+            <!-- Kết quả tìm kiếm sẽ được hiển thị tại đây -->
+        </div>
+    </main>
+    <section id="product" class="section-p1">
+        <h2>Sản Phẩm</h2>
+        <div class="product-box" id="productBox"></div>
+    </section>
+    <script src="../static/js/productname.js"></script>
+</body>
+</html>

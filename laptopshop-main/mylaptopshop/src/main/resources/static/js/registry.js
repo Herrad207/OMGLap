@@ -52,7 +52,7 @@ document.getElementById('registrationForm').addEventListener('submit', function 
             localStorage.setItem('authToken', loginData.data.token);
             localStorage.setItem('userId', loginData.data.id);
             alert('Đăng ký và đăng nhập thành công!');
-            window.location.href = 'home.html'; // Chuyển hướng đến trang chủ
+            window.location.href = 'mainpage.html'; // Chuyển hướng đến trang chủ
         })
         .catch((error) => {
             console.error('Error:', error.message);

@@ -21,9 +21,12 @@ public interface IProductService {
     List<Product> getProductByBrandAndCategory(String brand, String category);
     List<Product> getProductByBrandAndName(String brand, String name);
     List<Product> filterProducts(String category,BigDecimal minPrice, BigDecimal maxPrice);
+    List<Product> filterProductsB(String brand,BigDecimal minPrice, BigDecimal maxPrice);
     Long countProductByBrandAndName(String brand, String name);
     List<ProductDto> getConvertedProducts(List<Product> products);
     ProductDto convertToDto(Product product);
     ProductAttribute createProductAttribute(Long productId, Long attributeId, String value);
     List<ProductAttribute> getAttributesByProductId(Long productId);
+    List<Product> getProductsByPage(int page, int size);
+    
 }

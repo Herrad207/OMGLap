@@ -27,6 +27,8 @@ public class Attribute {
 
     @OneToMany(mappedBy = "attribute",cascade = CascadeType.ALL)
     private Set<ProductAttribute> productAttributes = new HashSet<>();
-
+    public Attribute(String name){
+        this.name = name;
+    }
 
 }

@@ -4,7 +4,6 @@ function togglePassword() {
     const type = passwordField.type === 'password' ? 'text' : 'password';
     passwordField.type = type;
 }
-
 // Xử lý sự kiện đăng nhập
 document.getElementById('login-button').addEventListener('click', async function () {
     const username = document.getElementById('username').value.trim();
@@ -38,7 +37,7 @@ document.getElementById('login-button').addEventListener('click', async function
         localStorage.setItem('userId', data.data.id);
         // localStorage.setItem('userData', data.data);
 
-        window.location.href = 'home.html';
+        window.location.href = 'mainpage.html';
     } catch (error) {
         errorMessage.style.display = 'block';
         errorMessage.innerText = error.message;
