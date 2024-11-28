@@ -1,111 +1,98 @@
-/* Header */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-h1{
-    font-size: 50px;
-    line-height: 64px;
-    color: black;
-}
-h2{
-    font-size: 46px;
-    line-height: 54px;
-    color: black;
-}
-h4{
-    font-size: 20px;
-    color: black;
-}
-h6{
-    font-weight: 700;
-    font-size: 12px;
-    color: black;
-}
-.section-p1{
-    padding: 40px 80px;
-}
-.section-m1{
-    margin: 40px 0;
 }
 
-body{
-    width: 100%;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    padding-bottom: 80px; /* Tạo khoảng trống để tránh che nút bởi footer */
 }
-#header{
+
+/* Header */
+#header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 80px;
-    background: white;
-    box-shadow: 0 5px 15px rgba(0, 0,0, 0.06);
-    z-index: 999;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
     position: sticky;
     top: 0;
-    left: 0;
+    z-index: 1000;
 }
-#navbar{
-    display:flex;
+
+.logo-container {
+    display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
 }
-#navbar li{
-    list-style: none;
-    padding: 0 20px;
+
+.logo {
+    height: 50px;
 }
-#navbar li a{
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    color: violet;
-    transition: 0.3s ease;
+
+.brand-name {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
-#navbar li a:hover{
-    color:yellow;
-}
-.logo{
-    width: 60px;
-    height: auto;
-}
+
 #searchBar {
     display: flex;
     align-items: center;
-    flex-grow: 1;
-    justify-content: center;
-    margin: 0 20px;
+    gap: 10px;
 }
 
-#searchBar input {
-    width: 300px;
-    padding: 10px;
+#searchInput {
+    padding: 5px 10px;
+    font-size: 1rem;
+    width: 250px;
+    border-radius: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
-#searchBar button {
-    padding: 10px 20px;
-    background-color: violet;
-    color: white;
+#searchButton {
+    background-color: #ff9900;
+    color: #fff;
     border: none;
-    border-radius: 4px;
+    padding: 5px 15px;
     cursor: pointer;
-    margin-left: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#searchButton:hover {
+    background-color: #e68a00;
+}
+
+#navbar {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#navbar li {
+    position: relative;
+}
+
+#navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+#navbar a:hover {
+    color: #ff9900;
+    text-decoration: underline;
 }
 
 #searchResults {
     margin: 20px;
-}
-
-#categoryTitle {
-    text-align: center;
-    margin: 30px 0;
-}
-
-#categoryTitle h1 {
-    font-size: 36px;
-    color: purple;
 }
 
 /* Product List */
@@ -163,27 +150,6 @@ body{
     font-size: 14px;
 }
 
-/* Pagination */
-#pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-#pagination button {
-    padding: 10px;
-    background-color: violet;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 0 10px;
-}
-
-#pagination button:disabled {
-    background-color: grey;
-    cursor: not-allowed;
-}
 .brand-container {
     width: 300px; /* Đặt chiều rộng cho hộp chứa */
     max-height: 400px; /* Giới hạn chiều cao */
@@ -207,4 +173,48 @@ body{
     display: flex;
     flex-wrap: wrap; /* Hiển thị các sản phẩm theo nhiều hàng */
     gap: 16px; /* Khoảng cách giữa các sản phẩm */
+}
+/* Container cho bộ lọc giá và sắp xếp */
+#filters, #sortControls {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 20px; /* Khoảng cách giữa các phần tử */
+    margin: 20px 0;
+}
+
+/* Căn chỉnh các label và input cho minPrice và maxPrice */
+#filters label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px; /* Khoảng cách giữa label và input */
+}
+
+#filters input {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 150px; /* Chiều rộng cố định cho input */
+}
+
+/* Căn chỉnh các nút sắp xếp */
+#sortControls button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #003366;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#sortControls button:hover {
+    background-color: #004c99;
+}
+
+#sortControls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }

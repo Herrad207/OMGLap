@@ -11,8 +11,12 @@
     <!-- Header -->
     <header id="header">
             
-        <a href="mainpage.html"><img src="../static/img/loltransparent.png" class="logo" alt=""></a>
-        <a href="mainpage.html">LaptopOmg</a>
+        <div class="logo-container">
+            <a href="mainpage.html">
+                <img src="../static/img/loltransparent.png" class="logo" alt="Logo">
+            </a>
+            <h1 class="brand-name">LaptopOmg</h1>
+        </div>
         <div id="searchBar">
             <input 
                 type="text" 
@@ -26,17 +30,18 @@
             <ul id="navbar">
                 <li><a href="track.html">Order Tracking</a></li>
                 <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
-                <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+                <li><a href="compare.html">Compare</a></li>
                 <li><a href="contact.html"><i class="fas fa-phone"></i> Hotline: Sale / Contact</a></li>
-                <li><a href="index.html">Product</a></li>
-
+                <li id="user-info" style="display: none;">
+                    <a href="profile.html" id="username"></a> | <a href="#" id="logout-link">Logout</a>
+                </li>
+                <li id="login-section">
+                    <a href="login.html" id="login-link"><i class="fas fa-user"></i> Login</a>
+                </li>
             </ul>
-        </header>
+        </div>
+    </header>
 
-    <!-- Category Title -->
-    <section id="categoryTitle">
-        <h1 id="categoryName">Category: </h1> <!-- Tên danh mục sẽ được điền động -->
-    </section>
     <div class="brand-container">
         <h3>Brands</h3>
         <div id="brandBox" class="brand-box"></div>
@@ -49,11 +54,11 @@
     
         <label for="maxPrice">Max Price:</label>
         <input type="number" id="maxPrice" placeholder="Max Price">
-    
-        <!-- Nút Apply Filters -->
-        <button id="applyFiltersBtn" onclick="applyFilters()">Apply Filters</button>
+        <div id="sortControls">
+            <button id="sortAscBtn">Sort by Price: Low to High</button>
+            <button id="sortDescBtn">Sort by Price: High to Low</button>
+        </div>
     </div>
-
     <!-- Product List -->
     <section id="product" class="section-p1">
         <div class="product-box" id="productBox">
@@ -61,15 +66,7 @@
         </div>
     </section>
 
-    <!-- Pagination -->
-    <section id="pagination">
-        <button id="prevBtn" onclick="changePage('prev')">Prev</button>
-        <span id="pageNumber">1</span>
-        <button id="nextBtn" onclick="changePage('next')">Next</button>
-    </section>
-
     <script src="../static/js/productcategory.js"></script>
-    <script src="../static/js/filter.js"></script>
-
+    <script src="../static/js/home.js"></script>
 </body>
 </html>

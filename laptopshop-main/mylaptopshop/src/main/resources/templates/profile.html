@@ -11,19 +11,36 @@
 <body>
 
     <header id="header">
-        <a href="mainpage.html"><img src="../static/img/loltransparent.png" class="logo" alt="Logo"></a>
-        <a href="mainpage.html">LaptopOmg</a>
-        <ul id="navbar">
-            <li><a href="track.html">Order Tracking</a></li>
-            <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
-            <li><a href="contact.html"><i class="fas fa-phone"></i> Hotline: Sale / Contact</a></li>
-            <li id="user-info" style="display: none;">
-                <a href="profile.html" id="username"></a> | <a href="#" id="logout-link">Logout</a>
-            </li>
-            <li id="login-section">
-                <a href="login.html" id="login-link"><i class="fas fa-user"></i> Login</a>
-            </li>
-        </ul>
+            
+        <div class="logo-container">
+            <a href="mainpage.html">
+                <img src="../static/img/loltransparent.png" class="logo" alt="Logo">
+            </a>
+            <h1 class="brand-name">LaptopOmg</h1>
+        </div>
+        <div id="searchBar">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Search for products..." 
+                onkeypress="handleSearch(event)"
+            />
+            <button id="searchButton" onclick="redirectToSearch()">Search</button>
+        </div>
+        <div>
+            <ul id="navbar">
+                <li><a href="track.html">Order Tracking</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="compare.html">Compare</a></li>
+                <li><a href="contact.html"><i class="fas fa-phone"></i> Hotline: Sale / Contact</a></li>
+                <li id="user-info" style="display: none;">
+                    <a href="profile.html" id="username"></a> | <a href="#" id="logout-link">Logout</a>
+                </li>
+                <li id="login-section">
+                    <a href="login.html" id="login-link"><i class="fas fa-user"></i> Login</a>
+                </li>
+            </ul>
+        </div>
     </header>
 
     <div id="profile-container">
@@ -72,12 +89,12 @@
     </div>
 
     <footer id="footer">
-        <a href="mainpage.html"><img src="assets/image/loltransparent.png" class="logo" alt="Logo"></a>
+        <a href="mainpage.html"><img src="../static/img/loltransparent.png" class="logo" alt="Logo"></a>
         <li><a href="track.html">Order Tracking</a></li>
         <li><a href="cart.html"><i class="fas fa-map"></i>Cart</a></li>
         <li><a href="login.html"><i class="fas fa-envelope"></i>Login</a></li>
         <li><a href="contact.html"><i class="fas fa-phone"></i> Hotline: Sale / Contact</a></li>
-        <a href="bocongthuong.html"><img src="assets/image/logobocongthuong.png" class="bocongthuong" alt="Bộ Công Thương Logo"></a>
+        <a href="bocongthuong.html"><img src="../static/img/logobocongthuong.png" class="bocongthuong" alt="Bộ Công Thương Logo"></a>
     </footer>
 
     <script src="../static/js/profile.js"></script>

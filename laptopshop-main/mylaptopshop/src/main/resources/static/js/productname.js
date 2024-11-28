@@ -29,6 +29,7 @@ function displayProducts(products) {
     products.forEach(product => {
         const productDiv = document.createElement('div');
         productDiv.classList.add('product');
+        productDiv.addEventListener("click", () => handleProductClick(product.id)); // Thêm sự kiện click
 
         const productImg = document.createElement('img');
         productImg.src = product.image[0]?.downloadUrl 
@@ -64,4 +65,8 @@ function redirectToSearch() {
         // Chuyển hướng đến trang tìm kiếm với từ khóa
         window.location.href = `productname.html?search=${encodeURIComponent(keyword)}`;
     }
+}
+function handleProductClick(productId) {
+    // Chuyển hướng đến trang product.html với productId trong URL
+    window.location.href = `product.html?productId=${productId}`;
 }

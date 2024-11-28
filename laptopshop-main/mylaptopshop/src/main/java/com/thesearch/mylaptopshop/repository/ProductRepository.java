@@ -3,6 +3,8 @@ package com.thesearch.mylaptopshop.repository;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,6 +20,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
     List<Product> findByBrandAndName(String brand,String name);
     Long countByBrandAndName(String brand,String name);
     boolean existsByNameAndBrand(String name,String brand);
+    Page<Product> findByCategory_Name(String categoryName, PageRequest pageable);
 
     @Query("SELECT p FROM Product p Where "
             +"(:category IS NULL OR p.category.name = :category) AND "
@@ -30,10 +33,12 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
     );
 
     @Query("SELECT p FROM Product p Where "
+            +"(:category IS NULL OR p.category.name = :category) AND "
             +"(:brand IS NULL OR p.brand = :brand) AND "
             +"(:minPrice IS NULL OR p.price >= :minPrice) AND "
             +"(:maxPrice IS NULL OR p.price <= :maxPrice)")
     List<Product> findByFilterB(
+        @Param("category") String category,
         @Param("brand") String brand,
         @Param("minPrice") BigDecimal minPrice,
         @Param("maxPrice") BigDecimal maxPrice

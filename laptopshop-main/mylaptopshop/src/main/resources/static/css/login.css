@@ -1,64 +1,96 @@
-/* Đặt lại CSS cơ bản */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-/* Căn chỉnh tổng thể */
 body {
+    font-family: 'Arial', sans-serif;
     background-color: #f9f9f9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    padding: 10px;
-    margin: 0;
+    color: #333;
+    padding-bottom: 80px; /* Tạo khoảng trống để tránh che nút bởi footer */
 }
 
 /* Header */
 #header {
     display: flex;
-    justify-content: center;
     align-items: center;
-    position: relative;
-    height: 150px;
-    background: transparent;
-    z-index: 1;
-    margin-bottom: 20px;
-    border: none;
+    justify-content: space-between;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* Logo container */
 .logo-container {
-    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: transparent;
+    gap: 10px;
 }
 
-/* Logo */
 .logo {
-    width: 60px;
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 50px;
 }
 
-/* Brand name (chữ LaptopOmg) */
 .brand-name {
-    position: relative;
-    font-size: 40px;
-    color: rgb(222, 14, 59);
+    font-size: 1.5rem;
     font-weight: bold;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-    pointer-events: none;
 }
+
+#searchBar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#searchInput {
+    padding: 5px 10px;
+    font-size: 1rem;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#searchButton {
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#searchButton:hover {
+    background-color: #e68a00;
+}
+
+#navbar {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#navbar li {
+    position: relative;
+}
+
+#navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+#navbar a:hover {
+    color: #ff9900;
+    text-decoration: underline;
+}
+
 /* Khung đăng nhập */
 .container {
     width: 100%;
@@ -67,7 +99,8 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 10px;
+    margin: 50px auto; /* Căn giữa và tạo khoảng cách từ trên xuống */
+    box-sizing: border-box;
 }
 
 .auth-form__heading {
@@ -120,12 +153,12 @@ body {
 }
 
 .btn--primary {
-    background-color: violet;
+    background-color: #333;
     transition: background-color 0.3s ease;
 }
 
 .btn--primary:hover {
-    background-color: purple;
+    background-color: rgb(0, 20, 30);
 }
 
 /* Toggle mật khẩu */
@@ -150,12 +183,12 @@ body {
 }
 
 .auth-form__help-link {
-    color: violet;
+    color: #333;
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s ease;
 }
 
 .auth-form__help-link:hover {
-    color: purple;
+    color: rgb(0, 20, 30);
 }

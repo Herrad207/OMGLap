@@ -164,13 +164,19 @@ public class ProductService implements IProductService {
         return productRepository.findByFilter(category, minPrice, maxPrice);
     }
     @Override
-    public List<Product> filterProductsB(String brand, BigDecimal minPrice, BigDecimal maxPrice){
-        return productRepository.findByFilterB(brand, minPrice, maxPrice);
+    public List<Product> filterProductsB(String category,String brand, BigDecimal minPrice, BigDecimal maxPrice){
+        return productRepository.findByFilterB(category, brand, minPrice, maxPrice);
     }
     @Override
     public List<Product> getProductsByPage(int page, int size) {
         PageRequest pageable = PageRequest.of(page, size);
         Page<Product> productPage = productRepository.findAll(pageable);
         return productPage.getContent();
+    }
+    @Override
+    public List<Product> getProductsByCategoryAndPage(String category, int page, int size) {
+        PageRequest pageable = PageRequest.of(page, size); // Tạo pageable
+        Page<Product> pageProducts = productRepository.findByCategory_Name(category, pageable);
+        return pageProducts.getContent();     
     }
 }

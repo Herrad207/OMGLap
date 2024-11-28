@@ -19,7 +19,7 @@ function renderCompareTable() {
     // Gửi yêu cầu lấy thông tin chi tiết sản phẩm
     Promise.all(
         compareList.map(product =>
-            fetch(`http://localhost:9193/api/v1/products/product/${product.id}/product`)
+            fetch(`http://localhost:9193/api/v1/products/${product.id}`)
                 .then(res => res.json())
         )
     )

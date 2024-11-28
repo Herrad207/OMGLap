@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.thesearch.mylaptopshop.dto.ProductDto;
@@ -104,7 +103,7 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/by/brand-and-category")
+    @GetMapping("/product/by/brand-and-category")
     public ResponseEntity<ApiResponse> getProductByBrandAndCategory(@RequestParam String brand, @RequestParam String category){
         try{
             List<Product> products = productService.getProductByBrandAndCategory(brand, category);
@@ -194,12 +193,13 @@ public class ProductController {
     }
     @GetMapping("/filter/brand")
     public ResponseEntity<ApiResponse> getFilterProductsB(
+        @RequestParam(required = false) String category,
         @RequestParam(required = false) String brand,
         @RequestParam(required = false) BigDecimal minPrice,
         @RequestParam(required = false) BigDecimal maxPrice
     ) {
         try {
-            List<Product> products = productService.filterProductsB(brand, minPrice, maxPrice);
+            List<Product> products = productService.filterProductsB(category, brand, minPrice, maxPrice);
             List<ProductDto> productDtos = productService.getConvertedProducts(products);
             return ResponseEntity.ok(new ApiResponse("Success",productDtos));
         }catch(ResourceNotFoundException e){
@@ -212,5 +212,4 @@ public class ProductController {
         List<ProductDto> convertedProducts = productService.getConvertedProducts(products);
         return convertedProducts;
     }
-    
 }

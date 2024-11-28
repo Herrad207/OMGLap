@@ -21,6 +21,7 @@ async function fetchProductDetails(productId) {
 
 // Hiển thị chi tiết sản phẩm trong các div tương ứng
 function displayProductDetails(product) {
+    // Hiển thị chi tiết sản phẩm trong #productDetails
     const productDetails = document.getElementById("productDetails");
     productDetails.innerHTML = `
         <div class="product-images">
@@ -36,13 +37,74 @@ function displayProductDetails(product) {
             <p>Brand: ${product.brand}</p>
             <p>Price: ${product.price}</p>
             <p>Quantity: ${product.quantity}</p>
-            <button id="addToCartButton" class="btn-add-to-cart">Add to Cart</button>
+             <button id="addToCartButton" class="btn-add-to-cart">Add to Cart</button>
+            <button class="add-to-compare" onclick="addToCompare(${product.id}, '${product.name}')">Add to Compare</button>
         </div>
     `;
-
-    // Gắn sự kiện click vào nút "Add to Cart"
     const addToCartButton = document.getElementById("addToCartButton");
     addToCartButton.addEventListener("click", () => addToCart(product.id));
+
+    // Hiển thị bảng thuộc tính trong #attributes
+    const attributesDiv = document.getElementById("attributes");
+    if (product.attributes.length > 0) {
+        attributesDiv.innerHTML = `
+            <h2>Specifications</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${product.attributes
+                        .map(
+                            attr => `
+                        <tr>
+                            <td>${attr.attributeName}</td>
+                            <td>${attr.value}</td>
+                        </tr>
+                    `
+                        )
+                        .join('')}
+                </tbody>
+            </table>
+        `;
+    } else {
+        attributesDiv.innerHTML = "<p>No specifications available.</p>";
+    }
+}
+
+// Lấy productId từ URL và hiển thị sản phẩm
+const productId = getProductIdFromUrl();
+if (productId) {
+    fetchProductDetails(productId);
+} else {
+    console.error("Không có productId được cung cấp.");
+}
+
+function addToCompare(productId, productName) {
+    const maxCompare = 3;
+    // Lấy danh sách so sánh từ localStorage
+    let compareList = JSON.parse(localStorage.getItem('compareList')) || [];
+
+    // Kiểm tra sản phẩm đã tồn tại trong danh sách chưa
+    if (compareList.some(product => product.id === productId)) {
+        alert(`${productName} đã có trong danh sách so sánh.`);
+        return;
+    }
+
+    // Kiểm tra danh sách so sánh có vượt quá số lượng tối đa
+    if (compareList.length >= maxCompare) {
+        alert("Danh sách so sánh chỉ được chứa tối đa 3 sản phẩm.");
+        return;
+    }
+
+    // Thêm sản phẩm vào danh sách so sánh
+    compareList.push({ id: productId, name: productName });
+    localStorage.setItem('compareList', JSON.stringify(compareList));
+    showNotification("Product added to compare successfully!", "success");
+
 }
 
 // Thêm sản phẩm vào giỏ hàng
@@ -72,7 +134,6 @@ async function addToCart(productId) {
     }
 }
 
-// Hiển thị thông báo
 function showNotification(message, type) {
     const notification = document.createElement("div");
     notification.className = `notification ${type}`;
@@ -83,12 +144,4 @@ function showNotification(message, type) {
     setTimeout(() => {
         notification.remove();
     }, 3000); // Thông báo biến mất sau 3 giây
-}
-
-// Lấy productId từ URL và hiển thị sản phẩm
-const productId = getProductIdFromUrl();
-if (productId) {
-    fetchProductDetails(productId);
-} else {
-    console.error("Không có productId được cung cấp.");
 }

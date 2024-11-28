@@ -1,64 +1,97 @@
-/* Đặt lại các thiết lập mặc định */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-/* Nền trang */
 body {
+    font-family: 'Arial', sans-serif;
     background-color: #f9f9f9;
+    color: #333;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding: 20px;
+    min-height: 100vh; /* Tạo khoảng trống để tránh che nút bởi footer */
 }
 
 /* Header */
 #header {
     display: flex;
-    justify-content: center;
     align-items: center;
-    position: relative;
-    height: 150px;
-    background: transparent;
-    z-index: 1;
-    margin-bottom: 20px;
-    border: none;
+    justify-content: space-between;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* Logo container */
 .logo-container {
-    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: transparent;
+    gap: 10px;
 }
 
-/* Logo */
 .logo {
-    width: 60px;
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 50px;
 }
 
-/* Brand name (chữ LaptopOmg) */
 .brand-name {
-    position: relative;
-    font-size: 40px;
-    color: rgb(222, 14, 59);
+    font-size: 1.5rem;
     font-weight: bold;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-    pointer-events: none;
 }
 
+#searchBar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#searchInput {
+    padding: 5px 10px;
+    font-size: 1rem;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#searchButton {
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#searchButton:hover {
+    background-color: #e68a00;
+}
+
+#navbar {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#navbar li {
+    position: relative;
+}
+
+#navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+#navbar a:hover {
+    color: #ff9900;
+    text-decoration: underline;
+}
 /* Container */
 .container {
     width: 100%;
@@ -67,21 +100,19 @@ body {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
 }
 
-/* Form container */
 .auth-form__container {
     text-align: center;
 }
 
-/* Form heading */
 .auth-form__heading {
     font-size: 24px;
     margin-bottom: 20px;
     color: #333;
 }
 
-/* Input fields */
 .auth-form__input {
     width: 100%;
     padding: 10px;
@@ -90,20 +121,17 @@ body {
     margin-bottom: 15px;
 }
 
-/* Input field group */
 .auth-form__group {
     margin-bottom: 15px;
     position: relative;
 }
 
-/* Form controls */
 .auth-form__controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Button styles */
 .auth-form__controls-back,
 .btn--primary {
     padding: 10px 15px;
@@ -124,27 +152,92 @@ body {
 }
 
 .btn--primary {
-    background-color: violet;
+    background-color: #333;
     transition: background-color 0.3s ease;
 }
 
 .btn--primary:hover {
-    background-color: purple;
+    background-color: rgb(0, 10,20);
 }
 
-/* Aside links */
 .auth-form__aside {
     text-align: center;
     margin-top: 10px;
 }
 
 .auth-form__help-link {
-    color: violet;
+    color: rgb(238, 130, 144);
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s ease;
 }
 
 .auth-form__help-link:hover {
-    color: purple;
+    color: rgb(128, 0, 11);
+}
+/* Footer */
+#footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 10%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Để các phần tử không bị tràn ra ngoài khi không đủ không gian */
+    margin-top: auto; /* Đảm bảo footer luôn ở dưới cùng */
+}
+
+#footer .logo, #footer .bocongthuong {
+    height: 50px;
+    margin: 0 10px;
+}
+
+#footer li {
+    list-style: none;
+    margin: 0 15px;
+}
+
+#footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    color: #ff9900;
+    text-decoration: underline;
+}
+
+/* Thêm style cho các icon */
+#footer i {
+    margin-right: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #searchBar {
+        margin-top: 10px;
+    }
+
+    #navbar {
+        flex-direction: column;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-actions button {
+        margin-bottom: 10px;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
 }
